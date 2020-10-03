@@ -2,12 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   
-    let arr = [20,1,2000,30,5,5,4,2,9], num = 5;
+    let arr = [20,1,2000,30,6,6,77,3,2,4,5,5,4,2,9], num = 21;
 
     function start(arr, num) {
+
         let i = 0;
 
-        function theSecond() {
+        function bubbleSort() {
 
             if (arr[i] > arr[i+1]) {
 
@@ -15,36 +16,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 arr[i] = arr[i+1];
                 arr[i+1] = box;
                 i++;
-                theSecond();
+                bubbleSort();
             }
 
             if (arr[i] < arr[i+1]) {
                 i++;
-                theSecond();
+                bubbleSort();
             }
 
             if (arr[i] == arr[i+1]) {
                 i++;
-                theSecond();
+                bubbleSort();
             }
 
             i = 0;
         }
 
-        theSecond();
+        bubbleSort();
+
+        let low = 0, high = arr.length - 1, mid = 0, message = '';
         
-        let low = 0, high = arr[arr.length - 1], mid = 0;
+        binarSearch();
 
-        function binarSearch(num) {
+        function binarSearch() {
 
+            mid = Math.round((high + low) / 2);
 
-            if (num > low) {
-
+            if (high == low) {
+                message = 'false';
+                return message;
             }
-            
+
+            if (num < arr[mid]) {
+                high = mid - 1;
+                binarSearch();
+            } 
+
+            if (num > arr[mid]) {
+                low = mid + 1;
+                binarSearch();
+            }
+
+            if (arr[mid] == num) {
+                message = 'true';
+                return message;
+            }
         }
+
+        return message;
     }
 
-    start(arr, num);
-    console.log(arr);
+    console.log(start(arr, num));
+
 });
+
