@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   
-    let arr = [20,1,2000,30,6,6,77,3,2,4,5,5,4,2,9], num = 21;
+    let someArray = [20,1,2000,30,6,6,77,3,2,4,5,5,4,2,9], num = 21;
 
     function start(arr, num) {
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return message;
     }
 
-    console.log(start(arr, num));
+    console.log(start(someArray, num));
 
 });
 
